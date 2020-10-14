@@ -1,3 +1,58 @@
-Hello World
-Testing
-Wow
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IIT Mandi Quizzes</title>
+</head>
+<body>
+    <div id="navbar">
+    </div>
+
+    <div id="quizzes">
+    </div>
+
+    <div id="footer">
+    </div>
+
+    <script src="quizzes.js"></script>
+    <script>
+        console.log(quizzes);
+        for(var quizname in quizzes){
+            console.log(quizname);
+            var maindiv = document.createElement('div');
+            
+            var h1 = document.createElement('h1');
+            h1.innerHTML = quizname;
+
+            var desc = document.createElement('h6');
+            desc.innerHTML = quizzes[quizname]['Event description'];
+
+            var img = document.createElement('img');
+            img.src = quizzes[quizname]['Event Poster'];
+            img.height = "400";
+            img.width = "300";
+
+            var date = document.createElement('h6');
+            date.innerHTML = "Event date : " + quizzes[quizname]['Event date'];
+
+            var time = document.createElement('h6');
+            time.innerHTML = "Event time : " + quizzes[quizname]['Event time'];
+
+            var link = document.createElement('a');
+            link.href = quizzes[quizname]['Registration Link'];
+            link.innerHTML = "Click here to register";
+
+            maindiv.appendChild(h1);
+            maindiv.appendChild(img);
+            maindiv.appendChild(desc);
+            maindiv.appendChild(date);
+            maindiv.appendChild(time);
+            maindiv.appendChild(link);
+
+            var qzs = document.getElementById('quizzes')
+            qzs.appendChild(maindiv)
+        }
+    </script>
+</body>
+</html>
